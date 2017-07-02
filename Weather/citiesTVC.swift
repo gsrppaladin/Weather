@@ -13,7 +13,9 @@ class citiesTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        getWeatherCoreFunction()
+        getWeather(date: nil, city: "London") { (weatherObject) in
+            print(weatherObject)
+        }
         
     }
 
