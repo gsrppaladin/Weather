@@ -11,7 +11,7 @@ import Foundation
 
 func getWeatherCoreFunction() {
     
-    let key = "d54f9257c15d4eb29da10345172606"
+    let key = ""
     
     
     let urlStringBackUp = "http://api.worldweatheronline.com/premium/v1/weather.ashx?query="
@@ -42,10 +42,59 @@ func getWeatherCoreFunction() {
             } catch {
                 print("Error loading weather info")
             }
-            print(jsonResult)
+//            print(jsonResult)
+            
+            if let mainObject = jsonResult["data"] {
+                //print(mainObject)
+                if let currentCondition = mainObject["current_condition"] as? NSArray {
+                    //print(currentCondition)
+                    //print("############# \(currentCondition.count) ##############")
+                    //print(currentCondition[0])
+                    if let temperature: [String] = currentCondition.value(forKey: "temp_C") as? [String] {
+                        print(temperature[0])
+                    }
+
+                    if let humidity: [String] = currentCondition.value(forKey: "humidity") as? [String] {
+                     print(humidity[0])
+                    }
+                    if let visibility: [String] = currentCondition.value(forKey: "visibility") as? [String] {
+                        print(visibility[0])
+                    }
+                    
+                    if let windspeed: [String] = currentCondition.value(forKey: "windspeedKmph") as? [String] {
+                        print(windspeed[0])
+                    }
+                    
+                    //weather description:
+                    if let wd1 = currentCondition.value(forKey: "weatherDesc") as? NSArray {
+                        if let wd2 = wd1.value(forKey: "value") as? NSArray {
+                            if let wd3 = wd2[0] as? [String] {
+                                print(wd3[0])
+                            }
+                        }
+                    }
+                    
+                    if let iconObj = currentCondition.value(forKey: "weatherIconUrl") as? NSArray {
+                        //print(iconObj)
+                        if let icon = iconObj.value(forKey: "value") as? NSArray {
+//                            print(icon[0])
+                            if let icon1: [String] = icon[0] as? [String] {
+                                print(icon1[0])
+                            }
+                        }
+                    }
+                }
+            }
         }
-        
     }
-    
     task.resume()
 }
+
+
+
+
+
+
+
+
+
