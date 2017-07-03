@@ -13,9 +13,7 @@ class citiesTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        getWeather(date: nil, city: "London") { (weatherObject) in
-            print(weatherObject)
-        }
+       tableView.backgroundColor = UIColor(colorLiteralRed: 169/255, green: 148/255, blue: 196/255, alpha: 1.0)
         
     }
 
@@ -34,7 +32,7 @@ class citiesTVC: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
     
     
@@ -42,22 +40,39 @@ class citiesTVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return cities.count
     }
     
     
     
     
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! citiesTVCell
 
         // Configure the cell...
+        
+        
+        DispatchQueue.main.async {
+            cell.cityLbl.text = cities[indexPath.row]
+            cell.cityLbl.textColor = UIColor.white
+            cell.activityInd.startAnimating()
+            getWeather(date: nil, city: cities[indexPath.row]) { (weatherObj) in
+                if let temp = weatherObj.temperature {
+                    cell.activityInd.stopAnimating()
+                    cell.tempLbl.textColor = UIColor.white
+                    cell.tempLbl.text = temp + "° C"
+                }
+            }
+            
+            cell.backgroundColor = UIColor(colorLiteralRed: 169/255, green: 148/255, blue: 196/255, alpha: 1.0)
+        }
+        
 
         return cell
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.

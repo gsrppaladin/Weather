@@ -7,6 +7,11 @@
 //
 
 import Foundation
+
+var cities: [String] = ["Dubai", "London", "New_York", "Paris", "Boston"]
+
+
+
 struct weatherObj {
     var temperature: String?
     var humidity: String?
