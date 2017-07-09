@@ -16,6 +16,11 @@ class citiesTVC: UITableViewController {
        tableView.backgroundColor = UIColor(colorLiteralRed: 169/255, green: 148/255, blue: 196/255, alpha: 1.0)
         
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -55,7 +60,7 @@ class citiesTVC: UITableViewController {
         
         
         DispatchQueue.main.async {
-            cell.cityLbl.text = cities[indexPath.row]
+            cell.cityLbl.text = cities[indexPath.row].replacingOccurrences(of: "_", with: " ")
             cell.cityLbl.textColor = UIColor.white
             cell.activityInd.startAnimating()
             getWeather(date: nil, city: cities[indexPath.row]) { (weatherObj) in

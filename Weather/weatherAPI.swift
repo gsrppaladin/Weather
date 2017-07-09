@@ -25,7 +25,7 @@ func getWeather(date: String?, city: String, callback: @escaping (weatherObj) ->
 
     
     //id here:
-    let key = ""
+    let key = "d54f9257c15d4eb29da10345172606"
 
 
     let urlStringBackUp = "http://api.worldweatheronline.com/premium/v1/weather.ashx?query="
