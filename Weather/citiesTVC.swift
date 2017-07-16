@@ -60,7 +60,8 @@ class citiesTVC: UITableViewController {
         
         
         DispatchQueue.main.async {
-            cell.cityLbl.text = cities[indexPath.row].replacingOccurrences(of: "_", with: " ")
+            //cell.cityLbl.text = cities[indexPath.row].replacingOccurrences(of: "_", with: " ")
+            cell.cityLbl.text = cities[indexPath.row]
             cell.cityLbl.textColor = UIColor.white
             cell.activityInd.startAnimating()
             getWeather(date: nil, city: cities[indexPath.row]) { (weatherObj) in
@@ -114,14 +115,17 @@ class citiesTVC: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        
+        let index = tableView.indexPathForSelectedRow?.row
+        let destination = segue.destination as! RootViewController
+        destination.pageIndex = index!
     }
-    */
+ 
 
 }

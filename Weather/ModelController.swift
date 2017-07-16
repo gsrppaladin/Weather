@@ -38,7 +38,8 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
 
         // Create a new view controller and pass suitable data.
         let dataViewController = storyboard.instantiateViewController(withIdentifier: "DataViewController") as! DataViewController
-        dataViewController.dataObject = cities[index].replacingOccurrences(of: "_", with: " ")
+        //dataViewController.dataObject = cities[index].replacingOccurrences(of: "_", with: " ")
+        dataViewController.dataObject = cities[index]
         return dataViewController
     }
 

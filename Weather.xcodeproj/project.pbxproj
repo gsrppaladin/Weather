@@ -14,6 +14,7 @@
 		FE8B9E341F00659D0063000A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE8B9E321F00659D0063000A /* Main.storyboard */; };
 		FE8B9E361F00659D0063000A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE8B9E351F00659D0063000A /* Assets.xcassets */; };
 		FE8B9E391F00659D0063000A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE8B9E371F00659D0063000A /* LaunchScreen.storyboard */; };
+		FEAA045A1F130BAF00CCA33E /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = FEAA04591F130BAF00CCA33E /* background.png */; };
 		FEEAB1F91F09C96E00270A9C /* citiesTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEAB1F81F09C96E00270A9C /* citiesTVCell.swift */; };
 		FEFE15141F08285A002BAAD1 /* weatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFE15131F08285A002BAAD1 /* weatherAPI.swift */; };
 		FEFE15161F0829B1002BAAD1 /* citiesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFE15151F0829B1002BAAD1 /* citiesTVC.swift */; };
@@ -29,6 +30,7 @@
 		FE8B9E351F00659D0063000A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE8B9E381F00659D0063000A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FE8B9E3A1F00659D0063000A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FEAA04591F130BAF00CCA33E /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		FEEAB1F81F09C96E00270A9C /* citiesTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = citiesTVCell.swift; sourceTree = "<group>"; };
 		FEFE15131F08285A002BAAD1 /* weatherAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = weatherAPI.swift; sourceTree = "<group>"; };
 		FEFE15151F0829B1002BAAD1 /* citiesTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = citiesTVC.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 		FE8B9E291F00659C0063000A /* Weather */ = {
 			isa = PBXGroup;
 			children = (
+				FEAA04591F130BAF00CCA33E /* background.png */,
 				FEFE15121F082847002BAAD1 /* Global */,
 				FE8B9E2A1F00659D0063000A /* AppDelegate.swift */,
 				FEEAB1F81F09C96E00270A9C /* citiesTVCell.swift */,
@@ -148,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE8B9E391F00659D0063000A /* LaunchScreen.storyboard in Resources */,
+				FEAA045A1F130BAF00CCA33E /* background.png in Resources */,
 				FE8B9E361F00659D0063000A /* Assets.xcassets in Resources */,
 				FE8B9E341F00659D0063000A /* Main.storyboard in Resources */,
 			);
