@@ -12,14 +12,8 @@ class citiesTVCell: UITableViewCell {
 
     
     @IBOutlet var cityLbl: UILabel!
-    
     @IBOutlet var tempLbl: UILabel!
-    
     @IBOutlet var activityInd: UIActivityIndicatorView!
-    
-    
-    
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()

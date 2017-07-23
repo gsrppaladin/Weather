@@ -4,7 +4,7 @@
 //
 //  Created by Sam Greenhill on 6/25/17.
 //  Copyright © 2017 simplyAmazingMachines. All rights reserved.
-//
+//*******           *********           *****               ************************            ***
 
 import UIKit
 
@@ -38,8 +38,11 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
 
         // Create a new view controller and pass suitable data.
         let dataViewController = storyboard.instantiateViewController(withIdentifier: "DataViewController") as! DataViewController
-        //dataViewController.dataObject = cities[index].replacingOccurrences(of: "_", with: " ")
+        
         dataViewController.dataObject = cities[index]
+        dataViewController.totalPages = cities.count
+        dataViewController.pageIndex = index
+        
         return dataViewController
     }
 
@@ -75,4 +78,48 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

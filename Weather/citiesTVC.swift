@@ -4,7 +4,7 @@
 //
 //  Created by Sam Greenhill on 7/1/17.
 //  Copyright © 2017 simplyAmazingMachines. All rights reserved.
-//
+//                      *********************************************** ****            *********
 
 import UIKit
 
@@ -22,26 +22,12 @@ class citiesTVC: UITableViewController {
         self.navigationController?.isNavigationBarHidden = false
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-        
-        
-    }
-    
-    
-    
-    
-
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-    
-    
-    
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -58,9 +44,6 @@ class citiesTVC: UITableViewController {
 
         // Configure the cell...
         
-        
-        DispatchQueue.main.async {
-            //cell.cityLbl.text = cities[indexPath.row].replacingOccurrences(of: "_", with: " ")
             cell.cityLbl.text = cities[indexPath.row]
             cell.cityLbl.textColor = UIColor.white
             cell.activityInd.startAnimating()
@@ -68,14 +51,12 @@ class citiesTVC: UITableViewController {
                 if let temp = weatherObj.temperature {
                     cell.activityInd.stopAnimating()
                     cell.tempLbl.textColor = UIColor.white
-                    cell.tempLbl.text = temp + "° C"
+                    cell.tempLbl.text = temp + "° C" // Shift + Option + 8
                 }
             }
             
             cell.backgroundColor = UIColor(colorLiteralRed: 169/255, green: 148/255, blue: 196/255, alpha: 1.0)
-        }
         
-
         return cell
     }
  
@@ -129,3 +110,33 @@ class citiesTVC: UITableViewController {
  
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

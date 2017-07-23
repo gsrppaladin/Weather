@@ -4,7 +4,7 @@
 //
 //  Created by Sam Greenhill on 6/25/17.
 //  Copyright © 2017 simplyAmazingMachines. All rights reserved.
-//
+//********************************      *********************************************
 
 import UIKit
 
@@ -12,7 +12,7 @@ class RootViewController: UIViewController, UIPageViewControllerDelegate {
 
     var pageViewController: UIPageViewController?
 
-    var pageIndex = 0
+    var pageIndex: Int = 0
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
@@ -92,4 +92,52 @@ class RootViewController: UIViewController, UIPageViewControllerDelegate {
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

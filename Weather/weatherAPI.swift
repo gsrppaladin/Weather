@@ -4,7 +4,7 @@
 //
 //  Created by Sam Greenhill on 7/1/17.
 //  Copyright © 2017 simplyAmazingMachines. All rights reserved.
-//
+// ***********************************************************************************************
 
 import Foundation
 
@@ -25,11 +25,10 @@ func getWeather(date: String?, city: String, callback: @escaping (weatherObj) ->
 
     
     //id here:
-    let key = ""
+    let key = "d54f9257c15d4eb29da10345172606"
 
 
-    let urlStringBackUp = "http://api.worldweatheronline.com/premium/v1/weather.ashx?query="
-    //let urlString1 = "http://api.worldweatheronline.com/free/v2/weather.ashx?q="
+    let urlString1 = "http://api.worldweatheronline.com/premium/v1/weather.ashx?query="
     let urlString2 = city
     let urlString3 = "&format=json&num_of_days=1&key="
     let urlString4 = key
@@ -37,9 +36,9 @@ func getWeather(date: String?, city: String, callback: @escaping (weatherObj) ->
     var urlString = ""
     
     if let dt = date {
-        urlString = urlStringBackUp + urlString2 + urlString3 + urlString4 + "&date=\(dt)"
+        urlString = urlString1 + urlString2 + urlString3 + urlString4 + "&date=\(dt)"
     } else {
-        urlString = urlStringBackUp + urlString2 + urlString3 + urlString4
+        urlString = urlString1 + urlString2 + urlString3 + urlString4
     }
     
     
@@ -79,7 +78,7 @@ func getWeather(date: String?, city: String, callback: @escaping (weatherObj) ->
                     }
 
                     if let humidity: [String] = currentCondition.value(forKey: "humidity") as? [String] {
-                     print(humidity[0])
+                        print(humidity[0])
                         wObj.humidity = humidity[0]
                     }
                     if let visibility: [String] = currentCondition.value(forKey: "visibility") as? [String] {

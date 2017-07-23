@@ -4,7 +4,7 @@
 //
 //  Created by Sam Greenhill on 6/25/17.
 //  Copyright © 2017 simplyAmazingMachines. All rights reserved.
-//
+// *******      **************       ****************************       ****************************
 
 import UIKit
 
@@ -49,23 +49,14 @@ class DataViewController: UIViewController {
     
     @IBOutlet var pageControl: UIPageControl!
     
-    
+    var totalPages: Int = 0
+    var pageIndex: Int = 0
     
     @IBAction func cancelPressed(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -77,6 +68,12 @@ class DataViewController: UIViewController {
         super.viewWillAppear(animated)
         
         self.cityLbl.text = dataObject
+        
+        //set view colors:
+        viewDay2.backgroundColor = UIColor(colorLiteralRed: 217/255, green: 169/255, blue: 206/255, alpha: 0.8)
+        viewDay3.backgroundColor = UIColor(colorLiteralRed: 210/255, green: 156/255, blue: 199/255, alpha: 0.8)
+        viewDay4.backgroundColor = UIColor(colorLiteralRed: 197/255, green: 134/255, blue: 186/255, alpha: 0.8)
+        viewDay5.backgroundColor = UIColor(colorLiteralRed: 186/255, green: 117/255, blue: 177/255, alpha: 0.8)
         
         
         //Day 1
@@ -95,7 +92,6 @@ class DataViewController: UIViewController {
                 
                 if let temp = weather.temperature {
                     self.day1Temp.text = temp + "° C"
-                    
                 }
                 
                 if let wspeed = weather.windspeed {
@@ -128,19 +124,114 @@ class DataViewController: UIViewController {
                 }
             }
         }
+
+        
+        
+        
+        
+        //Day 2
+        let day2 = Date().addingTimeInterval(24 * 60 * 60)
+        setWeatherObjects(temp: day2Temp, day: day2Day, img: day2Image, activityIndicator: activityIndicator2, dt: day2)
+        
+        //Day 3
+        let day3 = day2.addingTimeInterval(24 * 60 * 60)
+        setWeatherObjects(temp: day3Temp, day: day3Day, img: day3Image, activityIndicator: activityIndicator3, dt: day3)
+        
+        //Day 4
+        let day4 = day3.addingTimeInterval(24 * 60 * 60)
+        setWeatherObjects(temp: day4Temp, day: day4Day, img: day4Image, activityIndicator: activityIndicator4, dt: day4)
+        
+        //Day 5
+        let day5 = day4.addingTimeInterval(24 * 60 * 60)
+        setWeatherObjects(temp: day5Temp, day: day5Day, img: day5Image, activityIndicator: activityIndicator5, dt: day5)
+        
+        //setup page control
+        pageControl.numberOfPages = totalPages
+        pageControl.currentPage = pageIndex
         
     }
-
     
     
-    
-    
-    
-    
-    
+    func setWeatherObjects(temp: UILabel, day: UILabel, img: UIImageView, activityIndicator: UIActivityIndicatorView, dt: Date) {
+        
+        temp.text = ""
+        day.text = ""
+        img.image = nil
+        
+        let formatterDisplay = DateFormatter()
+        formatterDisplay.dateFormat = "EEEE"
+        
+        let dateDisplay = formatterDisplay.string(from: dt)
+        
+        let formatterParam = DateFormatter()
+        formatterParam.dateFormat = "yyyy-MM-dd"
+        
+        let dateParam = formatterParam.string(from: dt)
+        
+        activityIndicator.startAnimating()
+        
+        getWeather(date: dateParam, city: dataObject) { (wObject) in
+            
+            if let weather = wObject as? weatherObj {
+                
+                activityIndicator.stopAnimating()
+                
+                if let temperature = weather.temperature {
+                    temp.text = temperature + "°"
+                }
+                
+                day.text = dateDisplay
+                
+                if let urlString = weather.iconUrl {
+                    let url = URL(string: urlString)!
+                    do {
+                        let iconImageData: Data = try Data(contentsOf: url)
+                        img.image = UIImage(data: iconImageData)
+                    } catch {
+                        print("Error fetching image data")
+                    }
+                }
+                
+            }
+        }
+    }
     
     
     
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
